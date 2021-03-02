@@ -20,6 +20,11 @@ const GameReducer = (state, action) => {
         ...state,
         enemyWeapon: payload
       }
+    case EVALUATE_FIGHT:
+      return {
+        ...state,
+        fightResult: payload
+      }
     case SWITCH_STAGE:
       return {
         ...state,

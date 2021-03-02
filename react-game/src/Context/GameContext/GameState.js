@@ -5,7 +5,8 @@ import {
   SET_WEAPON, 
   SET_ENEMY_WEAPON, 
   ADD_WIN, 
-  SWITCH_STAGE } from './actions';
+  SWITCH_STAGE,
+  EVALUATE_FIGHT } from './actions';
 import getEnemyWeapon from '../../utils/getEnemyWeapon';
 import getWinner from './../../utils/getWinner';
 import gameConstants from './../../constants/gameConstants';
@@ -16,7 +17,7 @@ const GameState = ({children}) => {
   const initialState = {
     weapon: '',
     enemyWeapon: '',
-    winner: '',
+    fightResult: '',
     gameStage: 'choose',
     score: {
       player: 0,
@@ -48,6 +49,13 @@ const GameState = ({children}) => {
     })
   }
 
+  const evaluateFightAC = (result) => {
+    dispatch({
+      type: EVALUATE_FIGHT,
+      payload: result
+    })
+  }
+
   const setScoreAC = (weapon, enemyWeapon) => {
     const result = getWinner(weapon, enemyWeapon);
     let payload;
@@ -60,6 +68,7 @@ const GameState = ({children}) => {
     if( result === tie ) {
       payload = {player: 'player', enemy: 'enemy'};
     }
+    evaluateFightAC(result)
     dispatch({
       type: ADD_WIN,
       payload: payload
@@ -72,7 +81,8 @@ const GameState = ({children}) => {
       setWeaponAC,
       setEnemyWeaponAC,
       setScoreAC,
-      switchStageAC
+      switchStageAC,
+      evaluateFightAC
     }}
   >
     {children}

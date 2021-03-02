@@ -4,6 +4,7 @@ import GameContext from '../../Context/GameContext/GameContext';
 import ChooseWeaponComponent from './ChooseWeapon/ChooseWeaponComponent';
 import FightComponent from './FightComponent/FightComponent';
 import { Spin } from 'antd';
+import ResultComponent from './ResultComponent/ResultComponent';
 
 const Game = () => {
   const {
@@ -25,7 +26,7 @@ const Game = () => {
     return <FightComponent />
   }
   if(gameStage === result) {
-    return <div>result</div>
+    return <ResultComponent />
   }
   return <Spin/>
 };

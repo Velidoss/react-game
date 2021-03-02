@@ -9,15 +9,17 @@ const FightComponent = () => {
     state:{
       weapon, enemyWeapon
     },
-    setScoreAC
+    setScoreAC,
+    switchStageAC
   } = useContext(GameContext);
   console.log(state);
 
-  const {weapons, gameStages:{results}} = gameConstants;
+  const {weapons, gameStages:{result}} = gameConstants;
 
   useEffect(() => {
     setTimeout(() => {
       setScoreAC(weapon, enemyWeapon);
+      switchStageAC(result)
     }, 1000);
   }, []);
 
