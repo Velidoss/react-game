@@ -5,7 +5,7 @@ import menuConstants from './../../constants/menuConstants';
 import Game from './../Game/Game';
 import GameState from './../../Context/GameContext/GameState';
 
-const ContentComponent = (props) => {
+const ContentComponent = () => {
 
   const {mainMenu, regimes, settings, records } = menuConstants.menuLayout;
 
@@ -39,7 +39,9 @@ const ContentComponent = (props) => {
         <Route 
           path="/game" 
           render={
-            () => <GameState><Game /></GameState>
+            () => <GameState>
+                    <Game />
+                  </GameState>
           } 
         />
       </Switch>

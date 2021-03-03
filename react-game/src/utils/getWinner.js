@@ -7,16 +7,16 @@ const getWinner = (weapon, enemyWeapon) => {
     result = tie;
   }
   if (
-      (weapon === 'Rock' && enemyWeapon === 'Scissor') 
-      || (weapon === 'Scissor' && enemyWeapon === 'Paper') 
-      || (weapon === 'Paper' && enemyWeapon === 'Rock') 
+      (weapon === 'rock' && enemyWeapon === 'scissor') 
+      || (weapon === 'scissor' && enemyWeapon === 'paper') 
+      || (weapon === 'paper' && enemyWeapon === 'rock') 
     ) {
     result = win;
   }
   if (      
-      (enemyWeapon === 'Rock' && weapon === 'Scissor') 
-      || (enemyWeapon === 'Scissor' && weapon === 'Paper') 
-      || (enemyWeapon === 'Paper' && weapon === 'Rock')  
+      (enemyWeapon === 'rock' && weapon === 'scissor') 
+      || (enemyWeapon === 'scissor' && weapon === 'paper') 
+      || (enemyWeapon === 'paper' && weapon === 'rock')  
     ) {
     result = loss;
   }

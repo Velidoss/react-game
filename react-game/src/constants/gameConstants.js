@@ -1,6 +1,21 @@
+import paper from '../assets/images/paper.png';
+import rock from '../assets/images/rock.png';
+import scissor from '../assets/images/scissor.png';
+
 const gameConstants = {
   weapons: [
-    'Rock', 'Paper', 'Scissor',
+    {
+      name: 'rock',
+      imagePath: rock,
+    },
+    {
+      name: 'scissor',
+      imagePath: scissor
+    },
+    {
+      name: 'paper',
+      imagePath: paper,
+    },
   ],
   gameRegimes: [
     'bo3', 'bo5', 'domination',

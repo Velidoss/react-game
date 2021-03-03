@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import gameConstants from './../../../constants/gameConstants';
-import { Button } from 'antd';
 import GameContext from '../../../Context/GameContext/GameContext';
+import WeaponComponent from './Weapon/WeaponComponent';
 
 const ChooseWeaponComponent = () => {
   const {
@@ -13,18 +13,21 @@ const ChooseWeaponComponent = () => {
 
   const {weapons, gameStages:{fight}} = gameConstants;
 
+  const chooseWeapon = (weapon) => {
+    setWeaponAC(weapon);
+    setEnemyWeaponAC();
+    switchStageAC(fight);
+  }
   return (
     <div>
       <h2>Choose your weapon</h2>
       {
         weapons.map((item) => (
-          <Button onClick={() => {
-            setWeaponAC(item);
-            setEnemyWeaponAC();
-            switchStageAC(fight);
-          }}>
-            {item}
-          </Button>
+          <WeaponComponent
+            image={item.imagePath}
+            text={item.name}
+            onClickCallBack={() => chooseWeapon(item.name)}
+           />
         ))
       }
     </div>
