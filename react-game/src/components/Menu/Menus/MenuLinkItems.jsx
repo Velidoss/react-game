@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row, Col } from 'antd';
 import {NavLink} from 'react-router-dom';
+import {hoverSound, clickSound} from '../../../sounds/sounds';
+import SoundContext from '../../../Context/SoundContext/SoundContext';
 
 const MenuLinkItems = ({menuItems}) => {
-  console.log(menuItems)
+
+  const { soundState } = useContext(SoundContext);
+
   return (
     <Row>
       <Col>
@@ -12,7 +16,11 @@ const MenuLinkItems = ({menuItems}) => {
             <Row>
               <Col>
                 {item.path ? 
-                  <NavLink to={item.path}>
+                  <NavLink 
+                    to={item.path}
+                    onClick={()=> soundState && clickSound.play()}
+                    onMouseOver={()=> soundState && hoverSound.play()}
+                  >
                     {item.title}
                   </NavLink>
                   : <div>{item.title}</div> 

@@ -4,6 +4,7 @@ import MenuLinkItems from '../Menu/Menus/MenuLinkItems';
 import menuConstants from './../../constants/menuConstants';
 import Game from './../Game/Game';
 import GameState from './../../Context/GameContext/GameState';
+import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
 
 const ContentComponent = () => {
 
@@ -11,6 +12,7 @@ const ContentComponent = () => {
 
   return (
     <div className="App">
+      <SoundSwitcher />
       <Switch>
         <Route 
           exact path="/" 
