@@ -1,21 +1,31 @@
 import React, { useContext } from 'react';
 import SoundContext from '../../Context/SoundContext/SoundContext';
 import {SoundOutlined, SoundFilled} from '@ant-design/icons';
+import { Row, Col } from 'antd';
 
 const SoundSwitcher = () => {
 
   const { soundState, toggleSoundState} = useContext(SoundContext);
 
+  const style = {
+    height: '80px',
+    display: 'flex',
+    alignItems: 'center'
+  };
+
   return (
-    <div
-      onClick={() => toggleSoundState(!soundState)}
-    >
-      {
-        soundState 
-        ? <SoundFilled />
-        : <SoundOutlined />
-      }
-    </div>
+    <Row style={style} justify="end">
+      <Col
+        onClick={() => toggleSoundState(!soundState)}
+        span={2}
+      >
+        {
+          soundState 
+          ? <SoundFilled />
+          : <SoundOutlined />
+        }
+      </Col>
+    </Row>
   )
 };
 

@@ -10,43 +10,47 @@ const ContentComponent = () => {
 
   const {mainMenu, regimes, settings, records } = menuConstants.menuLayout;
 
+  const style = {
+    height: '100%'
+  };
+
   return (
-    <div className="App">
-      <SoundSwitcher />
-      <Switch>
-        <Route 
-          exact path="/" 
-          render={
-            () => <MenuLinkItems menuItems={mainMenu} />
-          } 
-        />
-        <Route 
-          path="/regimes" 
-          render={
-            () => <MenuLinkItems menuItems={regimes} />
-          } 
-        />
-        <Route 
-          path="/settings" 
-          render={
-            () => <MenuLinkItems menuItems={settings} />
-          } 
-        />
-        <Route 
-          path="/records" 
-          render={
-            () => <MenuLinkItems menuItems={records} />
-          } 
-        />
-        <Route 
-          path="/game" 
-          render={
-            () => <GameState>
-                    <Game />
-                  </GameState>
-          } 
-        />
-      </Switch>
+    <div style={style}>
+        <SoundSwitcher />
+        <Switch>
+          <Route 
+            exact path="/" 
+            render={
+              () => <MenuLinkItems menuItems={mainMenu} />
+            } 
+          />
+          <Route 
+            path="/regimes" 
+            render={
+              () => <MenuLinkItems menuItems={regimes} />
+            } 
+          />
+          <Route 
+            path="/settings" 
+            render={
+              () => <MenuLinkItems menuItems={settings} />
+            } 
+          />
+          <Route 
+            path="/records" 
+            render={
+              () => <MenuLinkItems menuItems={records} />
+            } 
+          />
+          <Route 
+            path="/game" 
+            render={
+              () => <GameState>
+                      <Game />
+                    </GameState>
+            } 
+          />
+        </Switch>
     </div>
   )
 };
