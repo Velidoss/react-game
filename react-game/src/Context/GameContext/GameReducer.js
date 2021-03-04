@@ -3,7 +3,7 @@ import {
   ADD_WIN, 
   SET_ENEMY_WEAPON, 
   EVALUATE_FIGHT,
-  SWITCH_STAGE 
+  SWITCH_STAGE,
 } from './actions';
 
 

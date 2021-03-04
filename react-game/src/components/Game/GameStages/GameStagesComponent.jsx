@@ -5,16 +5,20 @@ import ChooseWeaponComponent from './../ChooseWeapon/ChooseWeaponComponent';
 import FightComponent from './../FightComponent/FightComponent';
 import ResultComponent from '../ResultComponent/ResultComponent';
 import { Spin } from 'antd';
+import MainContext from './../../../Context/MainContext/MainContext';
 
 const GameStagesComponent = () => {
   const {
     state,
   } = useContext(GameContext);
+  const {
+    gameRegime,
+  } = useContext(MainContext);
   
   const { gameStages:{choose, fight, result} } = gameConstants;
 
   const {gameStage} = state;
-  console.log(`render with ${state.gameStage}`);
+
   if(gameStage === choose) {
     return <ChooseWeaponComponent />
   }
@@ -22,7 +26,7 @@ const GameStagesComponent = () => {
     return <FightComponent />
   }
   if(gameStage === result) {
-    return <ResultComponent />
+    return <ResultComponent gameRegime={gameRegime} />
   }
   return <Spin/>
 };

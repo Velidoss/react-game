@@ -21,8 +21,8 @@ const SoundSwitcher = () => {
       >
         {
           soundState 
-          ? <SoundFilled />
-          : <SoundOutlined />
+          ? <SoundFilled style={{fontSize:'28px'}} />
+          : <SoundOutlined style={{fontSize:'28px'}} />
         }
       </Col>
     </Row>

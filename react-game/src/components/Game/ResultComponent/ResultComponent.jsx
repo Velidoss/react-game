@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import GameContext from '../../../Context/GameContext/GameContext';
 import gameConstants from './../../../constants/gameConstants';
 import { Spin, Button } from 'antd';
 
-const ResultComponent = (props) => {
+const ResultComponent = ({gameRegime}) => {
+
+  const [count, setCount] = useState(0);
 
   const {
     state, switchStageAC
@@ -16,7 +18,10 @@ const ResultComponent = (props) => {
     return (
       <div>
         You have tied!
-        <Button onClick={() => switchStageAC(choose)}>Start new game</Button>
+        <Button onClick={() => {
+          switchStageAC(choose);
+          setCount(count + 1);
+          }}>Start new game</Button>
       </div>
     )
   }
@@ -24,7 +29,10 @@ const ResultComponent = (props) => {
     return (
       <div>
         You have lossed!
-        <Button onClick={() => switchStageAC(choose)}>Start new game</Button>
+        <Button onClick={() => {
+          switchStageAC(choose);
+          setCount(count + 1);
+          }}>Start new game</Button>
       </div>
     )
   }
@@ -32,7 +40,10 @@ const ResultComponent = (props) => {
     return (
       <div>
         You won!
-        <Button onClick={() => switchStageAC(choose)}>Start new game</Button>
+        <Button onClick={() => {
+          switchStageAC(choose);
+          setCount(count + 1);
+          }}>Start new game</Button>
       </div>
     )
   }

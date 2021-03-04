@@ -14,7 +14,7 @@ const FightComponent = () => {
   } = useContext(GameContext);
   console.log(state);
 
-  const {weapons, gameStages:{result}} = gameConstants;
+  const { gameStages:{result}} = gameConstants;
 
   useEffect(() => {
     setTimeout(() => {

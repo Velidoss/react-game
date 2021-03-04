@@ -6,14 +6,15 @@ import {
   SET_ENEMY_WEAPON, 
   ADD_WIN, 
   SWITCH_STAGE,
-  EVALUATE_FIGHT } from './actions';
+  EVALUATE_FIGHT, 
+  SET_REGIME} from './actions';
 import getEnemyWeapon from '../../utils/getEnemyWeapon';
 import getWinner from './../../utils/getWinner';
 import gameConstants from './../../constants/gameConstants';
 
 const GameState = ({children}) => {
 
-  const {gameResults:{tie, win, loss}, gameStages: {choose, fight, reult}} = gameConstants;
+  const {gameResults:{tie, win, loss}} = gameConstants;
   const initialState = {
     weapon: '',
     enemyWeapon: '',
@@ -82,7 +83,7 @@ const GameState = ({children}) => {
       setEnemyWeaponAC,
       setScoreAC,
       switchStageAC,
-      evaluateFightAC
+      evaluateFightAC,
     }}
   >
     {children}

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Switch, Route} from 'react-router-dom';
-import MenuLinkItems from '../Menu/Menus/MenuLinkItems';
-import menuConstants from './../../constants/menuConstants';
-import Game from './../Game/Game';
-import GameState from './../../Context/GameContext/GameState';
-import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
+import menuConstants from './../constants/menuConstants';
+import InfoButtons from './InfoButtons/InfoButtons';
+import MenuLinkItems from './Menu/Menus/MenuLinkItems';
+import GameState from './../Context/GameContext/GameState';
+import Game from './Game/Game';
+import MainContext from './../Context/MainContext/MainContext';
+
 
 const ContentComponent = () => {
+
+  const {setGameRegime} = useContext(MainContext);
 
   const {mainMenu, regimes, settings, records } = menuConstants.menuLayout;
 
@@ -16,7 +20,7 @@ const ContentComponent = () => {
 
   return (
     <div style={style}>
-        <SoundSwitcher />
+        <InfoButtons />
         <Switch>
           <Route 
             exact path="/" 
@@ -27,7 +31,11 @@ const ContentComponent = () => {
           <Route 
             path="/regimes" 
             render={
-              () => <MenuLinkItems menuItems={regimes} />
+              () => <MenuLinkItems 
+                menuItems={regimes} 
+                setRegime={(regime) => setGameRegime(regime)
+                } 
+              />
             } 
           />
           <Route 

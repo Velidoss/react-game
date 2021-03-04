@@ -5,7 +5,6 @@ import WeaponComponent from './Weapon/WeaponComponent';
 
 const ChooseWeaponComponent = () => {
   const {
-    state,
     setWeaponAC,
     setEnemyWeaponAC,
     switchStageAC
@@ -22,8 +21,9 @@ const ChooseWeaponComponent = () => {
     <div>
       <h2>Choose your weapon</h2>
       {
-        weapons.map((item) => (
+        weapons.map((item, index) => (
           <WeaponComponent
+            key={index}
             image={item.imagePath}
             text={item.name}
             onClickCallBack={() => chooseWeapon(item.name)}

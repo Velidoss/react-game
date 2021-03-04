@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
-import { Row, Col, Button, Space } from 'antd';
-import {NavLink} from 'react-router-dom';
-import {hoverSound, clickSound} from '../../../sounds/sounds';
+import { Row, Col, Space } from 'antd';
 import SoundContext from '../../../Context/SoundContext/SoundContext';
 import MenuLinkItem from './MenuLinkItem';
 
-const MenuLinkItems = ({menuItems}) => {
+const MenuLinkItems = ({menuItems, setGameRegime = () => {}}) => {
 
   const { soundState } = useContext(SoundContext);
 
@@ -25,7 +23,11 @@ const MenuLinkItems = ({menuItems}) => {
               <Row key={index} justify="center" style={{width: '100%'}}>
                 <Col style={{width: '80%', borderRadius: '20px'}}>
                   {item.path ? 
-                    <MenuLinkItem item={item} soundState={soundState} />
+                    <MenuLinkItem 
+                      item={item} 
+                      soundState={soundState} 
+                      setGameRegime={setGameRegime}
+                    />
                     : <div>{item.title}</div> 
                   }
                 </Col>
