@@ -8,12 +8,8 @@ import { Spin } from 'antd';
 import MainContext from './../../../Context/MainContext/MainContext';
 
 const GameStagesComponent = () => {
-  const {
-    state,
-  } = useContext(GameContext);
-  const {
-    gameRegime,
-  } = useContext(MainContext);
+  const {state} = useContext(GameContext);
+  const {gameRegime} = useContext(MainContext);
   
   const { gameStages:{choose, fight, result} } = gameConstants;
 

@@ -3,7 +3,7 @@ import { Row, Col, Space } from 'antd';
 import SoundContext from '../../../Context/SoundContext/SoundContext';
 import MenuLinkItem from './MenuLinkItem';
 
-const MenuLinkItems = ({menuItems, setGameRegime = () => {}}) => {
+const MenuLinkItems = ({menuItems, setGameRegime}) => {
 
   const { soundState } = useContext(SoundContext);
 
@@ -13,6 +13,7 @@ const MenuLinkItems = ({menuItems, setGameRegime = () => {}}) => {
     justifyContent: 'center',
     alignItems: 'center',
   }
+  console.log(setGameRegime)
 
   return (
     <Row justify="center" style={{height: '90%'}}>

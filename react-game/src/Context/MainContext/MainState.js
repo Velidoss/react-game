@@ -4,7 +4,7 @@ import MainContext from './MainContext';
 const MainState = ({children}) => {
 
   const [globalRegime, setGlobalRegime] = useState('menu');
-  const [gameRegime, setGameregime] = useState('');
+  const [gameRegime, setGameRegime] = useState('');
 
   
 
@@ -13,7 +13,7 @@ const MainState = ({children}) => {
       globalRegime, 
       setGlobalRegime, 
       gameRegime, 
-      setGameregime,
+      setGameRegime,
     }}
   >
     {children}

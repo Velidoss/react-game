@@ -1,18 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import GameContext from '../../../Context/GameContext/GameContext';
 import gameConstants from './../../../constants/gameConstants';
 import { Spin, Button } from 'antd';
+import checkIsGameFinished from './../../../utils/checkIsGameFinished';
+import { NavLink } from 'react-router-dom';
 
 const ResultComponent = ({gameRegime}) => {
 
-  const [count, setCount] = useState(0);
-
+  console.log(gameRegime)
   const {
     state, switchStageAC
   } = useContext(GameContext);
-  console.log(state);
-  const {fightResult} = state;
+
+  const {fightResult, score} = state;
   const {gameResults:{tie, win, loss}, gameStages:{choose}} = gameConstants;
+
+  const finished = checkIsGameFinished(score, gameRegime);
 
   if(fightResult === tie) {
     return (
@@ -20,30 +23,39 @@ const ResultComponent = ({gameRegime}) => {
         You have tied!
         <Button onClick={() => {
           switchStageAC(choose);
-          setCount(count + 1);
-          }}>Start new game</Button>
+          }}>Next round</Button>
       </div>
     )
   }
   if(fightResult === loss) {
-    return (
+    return finished ? (
       <div>
-        You have lossed!
+        You have lost a battle! Wanna play another one?
+        <NavLink to="/regimes" >Start new game</NavLink>
+      </div>
+    )
+    : (
+      <div>
+        You have lost a round! 
         <Button onClick={() => {
           switchStageAC(choose);
-          setCount(count + 1);
-          }}>Start new game</Button>
+          }}>Next round</Button>
       </div>
     )
   }
   if(fightResult === win) {
-    return (
+    return finished ? (
       <div>
-        You won!
+        You have won a battle! Wanna play another one?
+        <NavLink to="/regimes" >Start new game</NavLink>
+      </div>
+    )
+    : (
+      <div>
+        You have won a round!
         <Button onClick={() => {
           switchStageAC(choose);
-          setCount(count + 1);
-          }}>Start new game</Button>
+          }}>Next round</Button>
       </div>
     )
   }

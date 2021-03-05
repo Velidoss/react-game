@@ -31,13 +31,9 @@ const GameReducer = (state, action) => {
         gameStage: payload,
       }
     case ADD_WIN: 
-      if(payload.player && payload.enemy) {
+      if(!payload.player && !payload.enemy) {
         return {
-          ...state, 
-          score: {...state.score, 
-            player: state.score.player + 1,
-            enemy: state.score.enemy + 1,
-          }
+          ...state,
         }
       } 
       if(payload.player) {

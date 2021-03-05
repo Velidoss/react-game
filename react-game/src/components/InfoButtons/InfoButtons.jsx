@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import {Row, Col} from 'antd';
 import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
-import GameState from './../../Context/GameContext/GameState';
 import ScoreComponent from './../Score/ScoreComponent';
+import GameContext from './../../Context/GameContext/GameContext';
 
 
 const InfoButtons = () => {
   const location = useLocation();
-
-  console.log(location )
   const [showScore, setShowScore] = useState(false);
+  const {state} = useContext(GameContext);
+
+  const {score} = state;
 
   useEffect(() => {
     location.pathname === '/game' 
@@ -23,9 +24,7 @@ const InfoButtons = () => {
       <Col span={6} offset={10}>
         {
           showScore
-          && <GameState>
-               <ScoreComponent />
-             </GameState>
+          && <ScoreComponent score={score} />
         }
 
       </Col>      

@@ -3,7 +3,6 @@ import {Switch, Route} from 'react-router-dom';
 import menuConstants from './../constants/menuConstants';
 import InfoButtons from './InfoButtons/InfoButtons';
 import MenuLinkItems from './Menu/Menus/MenuLinkItems';
-import GameState from './../Context/GameContext/GameState';
 import Game from './Game/Game';
 import MainContext from './../Context/MainContext/MainContext';
 
@@ -33,7 +32,7 @@ const ContentComponent = () => {
             render={
               () => <MenuLinkItems 
                 menuItems={regimes} 
-                setRegime={(regime) => setGameRegime(regime)
+                setGameRegime={(regime) => setGameRegime(regime)
                 } 
               />
             } 
@@ -53,9 +52,7 @@ const ContentComponent = () => {
           <Route 
             path="/game" 
             render={
-              () => <GameState>
-                      <Game />
-                    </GameState>
+              () => <Game />
             } 
           />
         </Switch>

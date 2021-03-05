@@ -1,14 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Card } from 'antd';
-import GameContext from '../../Context/GameContext/GameContext';
 
-const ScoreComponent = () => {
+const ScoreComponent = ({score}) => {
 
-  const {
-    state,
-  } = useContext(GameContext);
-
-  const {score:{player, enemy}} = state;
+  const {player, enemy} = score;
+  console.log(score);
 
   const style = {
     width: '300px', 

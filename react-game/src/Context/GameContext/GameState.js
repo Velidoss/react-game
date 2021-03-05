@@ -6,8 +6,7 @@ import {
   SET_ENEMY_WEAPON, 
   ADD_WIN, 
   SWITCH_STAGE,
-  EVALUATE_FIGHT, 
-  SET_REGIME} from './actions';
+  EVALUATE_FIGHT} from './actions';
 import getEnemyWeapon from '../../utils/getEnemyWeapon';
 import getWinner from './../../utils/getWinner';
 import gameConstants from './../../constants/gameConstants';
@@ -67,7 +66,7 @@ const GameState = ({children}) => {
       payload = {enemy: 'enemy'};
     }
     if( result === tie ) {
-      payload = {player: 'player', enemy: 'enemy'};
+      payload = {};
     }
     evaluateFightAC(result)
     dispatch({
