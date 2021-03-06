@@ -5,3 +5,4 @@ export const EVALUATE_FIGHT = 'EVALUATE_FIGHT';
 export const SWITCH_STAGE = 'SWITCH_STAGE';
 export const REFRESH_STATE = 'REFRESH_STATE';
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
+export const SET_REGIME = 'SET_REGIME';

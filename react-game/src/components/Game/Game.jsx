@@ -1,21 +1,16 @@
 import React, { useContext } from 'react';
 import GameContext from '../../Context/GameContext/GameContext';
 import gameConstants from '../../constants/gameConstants';
-
 import { Spin } from 'antd';
-import MainContext from '../../Context/MainContext/MainContext';
 import ChooseWeaponComponent from './ChooseWeapon/ChooseWeaponComponent';
 import FightComponent from './FightComponent/FightComponent';
 import ResultComponent from './ResultComponent/ResultComponent';
 import ContainerHOC from './ContainerHOC/ContainerHOC';
 
 const Game = () => {
-  const {state} = useContext(GameContext);
-  const {gameRegime} = useContext(MainContext);
+  const {state: {gameRegime, gameStage}} = useContext(GameContext);
   
   const { gameStages:{choose, fight, result} } = gameConstants;
-
-  const {gameStage} = state;
 
   if(gameStage === choose) {
     return <ContainerHOC>

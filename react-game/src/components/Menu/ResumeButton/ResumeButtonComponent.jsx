@@ -1,14 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {Button} from 'antd';
 import { NavLink } from 'react-router-dom';
 import { clickSound } from './../../../sounds/sounds';
 import GameContext from './../../../Context/GameContext/GameContext';
 
 const ResumeButtonComponent = ({soundState}) => {
+  const {state: {gameActive}, state} = useContext(GameContext);
+  
+  const [show, toggleShow] = useState(false);
 
-  const {state: {gameActive}} = useContext(GameContext);
-  console.log(gameActive)
-  return gameActive ? (
+  useEffect(() => {
+    toggleShow(gameActive)
+  }, [gameActive]);
+
+  console.log(state)
+  return show ? (
     <Button block>
       <NavLink 
         to="/game"

@@ -5,7 +5,8 @@ import {
   EVALUATE_FIGHT,
   SWITCH_STAGE,
   REFRESH_STATE,
-  TOGGLE_ACTIVE
+  TOGGLE_ACTIVE,
+  SET_REGIME
 } from './actions';
 
 
@@ -31,6 +32,11 @@ const GameReducer = (state, action) => {
       return {
         ...state,
         fightResult: payload
+      }
+    case SET_REGIME:
+      return {
+        ...state,
+        gameRegime: payload
       }
     case SWITCH_STAGE:
       return {

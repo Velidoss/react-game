@@ -4,17 +4,15 @@ import gameConstants from './../../../constants/gameConstants';
 import { Row, Col, Spin } from 'antd';
 import WeaponComponent from './../ChooseWeapon/Weapon/WeaponComponent';
 import ResultComponent from '../ResultComponent/ResultComponent';
-import MainContext from './../../../Context/MainContext/MainContext';
 
 const FightComponent = () => {
 
   const {
     state:{
-      weapon, enemyWeapon
+      weapon, enemyWeapon, gameRegime
     },
     setScoreAC
   } = useContext(GameContext);
-  const {gameRegime} = useContext(MainContext);
 
   const { weapons} = gameConstants;
   const [loading, toggleLoading] = useState(true);

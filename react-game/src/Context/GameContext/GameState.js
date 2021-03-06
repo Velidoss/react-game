@@ -8,7 +8,8 @@ import {
   SWITCH_STAGE,
   EVALUATE_FIGHT,
   REFRESH_STATE,
-  TOGGLE_ACTIVE} from './actions';
+  TOGGLE_ACTIVE,
+  SET_REGIME} from './actions';
 import getEnemyWeapon from '../../utils/getEnemyWeapon';
 import getWinner from './../../utils/getWinner';
 import gameConstants from './../../constants/gameConstants';
@@ -22,6 +23,7 @@ const GameState = ({children}) => {
     fightResult: '',
     gameStage: 'choose',
     gameActive: false,
+    gameRegime: 'bo3',
     score: {
       player: 0,
       enemy: 0,
@@ -40,6 +42,13 @@ const GameState = ({children}) => {
   const refreshStateAC = () => {
     dispatch({
       type: REFRESH_STATE,
+    })
+  }
+
+  const setGameRegimeAC = (regime) => {
+    dispatch({
+      type: SET_REGIME,
+      payload: regime
     })
   }
   
@@ -100,7 +109,8 @@ const GameState = ({children}) => {
       switchStageAC,
       evaluateFightAC,
       refreshStateAC,
-      toggleGameActiveAC
+      toggleGameActiveAC,
+      setGameRegimeAC
     }}
   >
     {children}

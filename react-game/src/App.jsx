@@ -5,7 +5,6 @@ import 'antd/dist/antd.css';
 import ContentComponent from './components/ContentComponent';
 import gameBackground from './assets/images/gameBackground.jpg';
 import SoundState from './Context/SoundContext/SoundState';
-import MainState from './Context/MainContext/MainState';
 import GameState from './Context/GameContext/GameState';
 
 function App() {
@@ -22,11 +21,9 @@ function App() {
         }}
       >
         <SoundState>
-          <MainState>
-            <GameState>
-              <ContentComponent />
-            </GameState>
-          </MainState>
+          <GameState>
+            <ContentComponent />
+          </GameState>
         </SoundState>
       </Content>
     </Layout>

@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const ResultComponent = ({gameRegime}) => {
 
   const {
-    state, switchStageAC, refreshStateAC
+    state, switchStageAC, refreshStateAC, 
   } = useContext(GameContext);
 
   const {fightResult, score} = state;
@@ -35,7 +35,12 @@ const ResultComponent = ({gameRegime}) => {
       <Row justify="center">
         <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
           <h2>You have lost a battle! Wanna play another one?</h2>
-          <Button onClick={() => refreshStateAC()}><NavLink to="/regimes" >Start new game</NavLink></Button>
+          <Button 
+            onClick={() => {
+              refreshStateAC();
+            }}
+
+            ><NavLink to="/regimes" >Start new game</NavLink></Button>
         </Col>
       </Row>
     )
@@ -55,7 +60,10 @@ const ResultComponent = ({gameRegime}) => {
       <Row justify="center">
         <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
           <h2>You have won a battle! Wanna play another one?</h2>
-          <Button onClick={() => refreshStateAC()}><NavLink to="/regimes" >Start new game</NavLink></Button>
+          <Button 
+            onClick={() => {
+              refreshStateAC();
+            }}><NavLink to="/regimes" >Start new game</NavLink></Button>
         </Col>
       </Row>
     )

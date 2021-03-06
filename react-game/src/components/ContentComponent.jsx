@@ -3,15 +3,13 @@ import {Switch, Route} from 'react-router-dom';
 import menuConstants from './../constants/menuConstants';
 import InfoButtons from './InfoButtons/InfoButtons';
 import MenuLinkItems from './Menu/Menus/MenuLinkItems';
-import MainContext from './../Context/MainContext/MainContext';
 import Game from './Game/Game';
 import GameContext from './../Context/GameContext/GameContext';
 
 
 const ContentComponent = () => {
 
-  const {setGameRegime} = useContext(MainContext);
-  const {refreshStateAC, toggleGameActiveAC} = useContext(GameContext);
+  const {refreshStateAC, toggleGameActiveAC, setGameRegimeAC} = useContext(GameContext);
 
   const {mainMenu, regimes, settings, records } = menuConstants.menuLayout;
 
@@ -36,8 +34,7 @@ const ContentComponent = () => {
                 menuItems={regimes} 
                 setGameRegime={(regime) => {
                   refreshStateAC();
-                  setGameRegime(regime);
-                  toggleGameActiveAC(true)
+                  setGameRegimeAC(regime);
                 }} 
               />
             } 

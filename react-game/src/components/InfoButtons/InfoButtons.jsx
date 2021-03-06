@@ -4,16 +4,12 @@ import { Row, Col, Button } from 'antd';
 import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
 import ScoreComponent from './../Score/ScoreComponent';
 import GameContext from './../../Context/GameContext/GameContext';
-import MainContext from './../../Context/MainContext/MainContext';
 
 
 const InfoButtons = () => {
   const location = useLocation();
   const [showScore, setShowScore] = useState(false);
-  const {state} = useContext(GameContext);
-  const {gameRegime} = useContext(MainContext);
-
-  const {score} = state;
+  const {state:{score, gameRegime}} = useContext(GameContext);
 
   useEffect(() => {
     location.pathname === '/game' 
