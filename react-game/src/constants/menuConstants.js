@@ -2,7 +2,11 @@ const menuConstants = {
   menuLayout: {
     mainMenu: [
       {
-        title: 'Start game',
+        title: 'Resume game',
+        path: '/game'
+      },
+      {
+        title: 'Start new game',
         path: '/regimes'
       },
       {

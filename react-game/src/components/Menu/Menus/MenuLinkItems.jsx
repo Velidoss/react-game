@@ -13,7 +13,6 @@ const MenuLinkItems = ({menuItems, setGameRegime}) => {
     justifyContent: 'center',
     alignItems: 'center',
   }
-  console.log(setGameRegime)
 
   return (
     <Row justify="center" style={{height: '90%'}}>

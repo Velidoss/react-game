@@ -7,7 +7,8 @@ import {
   ADD_WIN, 
   SWITCH_STAGE,
   EVALUATE_FIGHT,
-  REFRESH_STATE} from './actions';
+  REFRESH_STATE,
+  TOGGLE_ACTIVE} from './actions';
 import getEnemyWeapon from '../../utils/getEnemyWeapon';
 import getWinner from './../../utils/getWinner';
 import gameConstants from './../../constants/gameConstants';
@@ -20,6 +21,7 @@ const GameState = ({children}) => {
     enemyWeapon: '',
     fightResult: '',
     gameStage: 'choose',
+    gameActive: false,
     score: {
       player: 0,
       enemy: 0,
@@ -53,6 +55,13 @@ const GameState = ({children}) => {
     dispatch({
       type: SWITCH_STAGE,
       payload: stage
+    })
+  }
+
+  const toggleGameActiveAC = (status) => {
+    dispatch({
+      type: TOGGLE_ACTIVE,
+      payload: status
     })
   }
 
@@ -90,7 +99,8 @@ const GameState = ({children}) => {
       setScoreAC,
       switchStageAC,
       evaluateFightAC,
-      refreshStateAC
+      refreshStateAC,
+      toggleGameActiveAC
     }}
   >
     {children}

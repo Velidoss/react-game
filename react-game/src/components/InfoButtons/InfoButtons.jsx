@@ -33,7 +33,7 @@ const InfoButtons = () => {
         }}
       >
         <Button>
-          <NavLink to="/regimes">
+          <NavLink to="/">
             Menu
           </NavLink>
         </Button>
