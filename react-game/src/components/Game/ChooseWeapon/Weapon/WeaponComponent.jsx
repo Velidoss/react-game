@@ -1,25 +1,31 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Card } from 'antd';
 
 const WeaponComponent = ({image, text, onClickCallBack}) => {
-
+  const { Meta } = Card;
   return (
-    <div>
-      <img 
+    <Card
+      hoverable
+      style={{
+        borderRadius: '10px',
+        padding: '20px',
+        backgroundColor: 'rgba(255,255,255, .5)',
+        border: 'none'
+      }}
+      cover={<img 
         src={image} 
         alt={text}
         style={{
           width: '100px',
           height: '100px',
-          borderRadius: '50%',
         }}
+      />}
+      onClick={onClickCallBack}
+    >
+      <Meta
+        title={text}
       />
-      <Button
-        onClick={onClickCallBack}
-      >
-        {text}
-      </Button>
-    </div>
+    </Card>
 
   )
 };

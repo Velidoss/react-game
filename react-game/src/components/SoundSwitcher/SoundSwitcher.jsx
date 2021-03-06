@@ -17,7 +17,7 @@ const SoundSwitcher = () => {
     <Row style={style} justify="end">
       <Col
         onClick={() => toggleSoundState(!soundState)}
-        span={2}
+        span={20}
       >
         {
           soundState 

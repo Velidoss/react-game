@@ -10,7 +10,7 @@ const gameConstants = {
     },
     {
       name: 'scissor',
-      imagePath: scissor
+      imagePath: scissor,
     },
     {
       name: 'paper',

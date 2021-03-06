@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { clickSound } from './../../../sounds/sounds';
 
 const MenuLinkItem = ({item, soundState, setGameRegime}) => {
-  console.log(setGameRegime)
+
   return (
     <Button block>
       <NavLink 

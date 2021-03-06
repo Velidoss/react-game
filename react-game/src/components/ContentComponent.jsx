@@ -3,8 +3,8 @@ import {Switch, Route} from 'react-router-dom';
 import menuConstants from './../constants/menuConstants';
 import InfoButtons from './InfoButtons/InfoButtons';
 import MenuLinkItems from './Menu/Menus/MenuLinkItems';
-import Game from './Game/Game';
 import MainContext from './../Context/MainContext/MainContext';
+import Game from './Game/Game';
 
 
 const ContentComponent = () => {
