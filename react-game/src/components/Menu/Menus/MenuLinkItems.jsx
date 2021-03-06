@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Row, Col, Space } from 'antd';
-import SoundContext from '../../../Context/SoundContext/SoundContext';
 import MenuLinkItem from './MenuLinkItem';
+import GlobalContext from './../../../Context/GlobalContext/GlobalContext';
 
 const MenuLinkItems = ({menuItems, setGameRegime}) => {
 
-  const { soundState } = useContext(SoundContext);
+  const { soundState } = useContext(GlobalContext);
 
   const style={
     display: 'flex',

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import SoundContext from '../../Context/SoundContext/SoundContext';
+import GlobalContext from '../../Context/GlobalContext/GlobalContext';
 import {SoundOutlined, SoundFilled} from '@ant-design/icons';
 import { Row, Col } from 'antd';
 
 const SoundSwitcher = () => {
 
-  const { soundState, toggleSoundState} = useContext(SoundContext);
+  const { soundState, toggleSoundState} = useContext(GlobalContext);
 
   const style = {
     height: '80px',

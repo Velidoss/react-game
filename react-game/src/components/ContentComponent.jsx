@@ -9,7 +9,7 @@ import GameContext from './../Context/GameContext/GameContext';
 
 const ContentComponent = () => {
 
-  const {refreshStateAC, toggleGameActiveAC, setGameRegimeAC} = useContext(GameContext);
+  const {refreshStateAC, setGameRegimeAC} = useContext(GameContext);
 
   const {mainMenu, regimes, settings, records } = menuConstants.menuLayout;
 

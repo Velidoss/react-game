@@ -1,19 +1,18 @@
-
-import SoundContext from './SoundContext';
+import GlobalContext from './GlobalContext';
 import { useState } from 'react';
 
-const SoundState = ({children}) => {
+const GlobalState = ({children}) => {
 
   const [soundState, toggleSoundState] = useState(true);
 
-  return <SoundContext.Provider
+  return <GlobalContext.Provider
     value={{
       soundState,
       toggleSoundState
     }}
   >
     {children}
-  </SoundContext.Provider>
+  </GlobalContext.Provider>
 };
 
-export default SoundState;
+export default GlobalState;

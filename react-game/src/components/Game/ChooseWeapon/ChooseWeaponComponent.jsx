@@ -18,8 +18,7 @@ const ChooseWeaponComponent = () => {
     setWeaponAC(weapon);
     setEnemyWeaponAC();
     switchStageAC(fight);
-  }
-
+  };
 
   return (
     <Row 

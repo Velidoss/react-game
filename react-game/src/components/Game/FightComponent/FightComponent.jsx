@@ -14,7 +14,7 @@ const FightComponent = () => {
     setScoreAC
   } = useContext(GameContext);
 
-  const { weapons} = gameConstants;
+  const { weapons } = gameConstants;
   const [loading, toggleLoading] = useState(true);
 
   useEffect(() => {

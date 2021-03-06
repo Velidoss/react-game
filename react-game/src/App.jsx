@@ -4,8 +4,9 @@ import './App.css';
 import 'antd/dist/antd.css';
 import ContentComponent from './components/ContentComponent';
 import gameBackground from './assets/images/gameBackground.jpg';
-import SoundState from './Context/SoundContext/SoundState';
+import GlobalState from './Context/GlobalContext/GlobalState';
 import GameState from './Context/GameContext/GameState';
+
 
 function App() {
 
@@ -20,11 +21,11 @@ function App() {
           background: `url(${gameBackground})`
         }}
       >
-        <SoundState>
+        <GlobalState>
           <GameState>
             <ContentComponent />
           </GameState>
-        </SoundState>
+        </GlobalState>
       </Content>
     </Layout>
   );
