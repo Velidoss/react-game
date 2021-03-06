@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom';
-import {Row, Col} from 'antd';
+import { useLocation, NavLink } from 'react-router-dom';
+import { Row, Col, Button } from 'antd';
 import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
 import ScoreComponent from './../Score/ScoreComponent';
 import GameContext from './../../Context/GameContext/GameContext';
@@ -23,9 +23,24 @@ const InfoButtons = () => {
 
   return (
     <Row style={{height: '100px'}}>
+      <Col  
+        md={{span: 2}} 
+        xs={{span: 6}} 
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
+        <Button>
+          <NavLink to="/regimes">
+            Menu
+          </NavLink>
+        </Button>
+      </Col>
       <Col 
-        md={{span: 6, offset: 8}} 
-        xs={{span: 18}}
+        md={{span: 8, offset: 6}} 
+        xs={{span: 12}}
       >
         {
           showScore

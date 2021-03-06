@@ -6,7 +6,8 @@ import {
   SET_ENEMY_WEAPON, 
   ADD_WIN, 
   SWITCH_STAGE,
-  EVALUATE_FIGHT} from './actions';
+  EVALUATE_FIGHT,
+  REFRESH_STATE} from './actions';
 import getEnemyWeapon from '../../utils/getEnemyWeapon';
 import getWinner from './../../utils/getWinner';
 import gameConstants from './../../constants/gameConstants';
@@ -32,6 +33,12 @@ const GameState = ({children}) => {
       type: SET_WEAPON,
       payload: weapon
     });
+  }
+
+  const refreshStateAC = () => {
+    dispatch({
+      type: REFRESH_STATE,
+    })
   }
   
   const setEnemyWeaponAC = () => {
@@ -83,6 +90,7 @@ const GameState = ({children}) => {
       setScoreAC,
       switchStageAC,
       evaluateFightAC,
+      refreshStateAC
     }}
   >
     {children}

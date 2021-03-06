@@ -7,7 +7,7 @@ const checkIsGameFinished = (score, regime) => {
     return (player === 3 || enemy === 3) && true; 
   }
   if (regime === 'domination') {
-    return (player - enemy > 2 || enemy - player > 2) && true; 
+    return (player - enemy >= 2 || enemy - player >= 2) && true; 
   }
   return false;
 };

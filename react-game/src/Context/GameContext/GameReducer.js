@@ -4,6 +4,7 @@ import {
   SET_ENEMY_WEAPON, 
   EVALUATE_FIGHT,
   SWITCH_STAGE,
+  REFRESH_STATE
 } from './actions';
 
 
@@ -29,6 +30,17 @@ const GameReducer = (state, action) => {
       return {
         ...state,
         gameStage: payload,
+      }
+    case REFRESH_STATE:
+      return {
+        weapon: '',
+        enemyWeapon: '',
+        fightResult: '',
+        gameStage: 'choose',
+        score: {
+          player: 0,
+          enemy: 0,
+        }
       }
     case ADD_WIN: 
       if(!payload.player && !payload.enemy) {

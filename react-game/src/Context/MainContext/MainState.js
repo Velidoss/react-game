@@ -6,7 +6,10 @@ const MainState = ({children}) => {
   const [globalRegime, setGlobalRegime] = useState('menu');
   const [gameRegime, setGameRegime] = useState('');
 
-  
+  const refreshMainState = () => {
+    setGlobalRegime('menu')
+    setGameRegime('bo3')
+  }
 
   return <MainContext.Provider
     value={{
@@ -14,6 +17,7 @@ const MainState = ({children}) => {
       setGlobalRegime, 
       gameRegime, 
       setGameRegime,
+      refreshMainState
     }}
   >
     {children}
