@@ -1,20 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import GameContext from '../../../Context/GameContext/GameContext';
 import gameConstants from './../../../constants/gameConstants';
 import { Spin, Button, Row, Col } from 'antd';
 import checkIsGameFinished from './../../../utils/checkIsGameFinished';
 import { NavLink } from 'react-router-dom';
+import getWinOrLoseSound from './../../../utils/getWinOrLoseSound';
+import GlobalContext from './../../../Context/GlobalContext/GlobalContext';
 
 const ResultComponent = ({gameRegime}) => {
 
   const {
     state, switchStageAC, refreshStateAC, 
   } = useContext(GameContext);
+  const {soundState} = useContext(GlobalContext);
 
   const {fightResult, score} = state;
   const {gameResults:{tie, win, loss}, gameStages:{choose}} = gameConstants;
 
   const finished = checkIsGameFinished(score, gameRegime);
+
+  useEffect(() => {
+    const sound = getWinOrLoseSound(fightResult);
+    soundState && sound.play();
+  }, [fightResult, soundState]);
 
   if(fightResult === tie) {
     return (

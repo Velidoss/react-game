@@ -1,9 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { Row, Col, Button } from 'antd';
-import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
 import ScoreComponent from './../Score/ScoreComponent';
 import GameContext from './../../Context/GameContext/GameContext';
+import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
 
 
 const InfoButtons = () => {

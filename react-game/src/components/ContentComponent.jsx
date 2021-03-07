@@ -5,13 +5,15 @@ import InfoButtons from './InfoButtons/InfoButtons';
 import MenuLinkItems from './Menu/Menus/MenuLinkItems';
 import Game from './Game/Game';
 import GameContext from './../Context/GameContext/GameContext';
+import SettingsComponent from './Settings/SettingsComponent';
+
 
 
 const ContentComponent = () => {
 
   const {refreshStateAC, setGameRegimeAC} = useContext(GameContext);
 
-  const {mainMenu, regimes, settings, records } = menuConstants.menuLayout;
+  const {mainMenu, regimes, records } = menuConstants.menuLayout;
 
   const style = {
     height: '100%'
@@ -42,7 +44,7 @@ const ContentComponent = () => {
           <Route 
             path="/settings" 
             render={
-              () => <MenuLinkItems menuItems={settings} />
+              () => <SettingsComponent />
             } 
           />
           <Route 
