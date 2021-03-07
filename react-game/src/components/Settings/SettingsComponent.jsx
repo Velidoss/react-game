@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Row, Col, Descriptions, Switch, Button, Card } from 'antd';
+import { Row, Col, Descriptions, Switch, Button, Card, Space } from 'antd';
 import GlobalContext from '../../Context/GlobalContext/GlobalContext';
 import ContainerHOC from './../Game/ContainerHOC/ContainerHOC';
 import checkLangButtonDisabled from './../../utils/checkLangButtonDisabled';
@@ -61,30 +61,32 @@ const SettingsComponent = () => {
               </Button>
             </Descriptions.Item>
             <Descriptions.Item label="Background">
-              <Card 
-                hoverable
-                style={{ width: 200 }}
-                cover={<img alt="pink" src={bg_pink} />}
-                onClick={() => toggleBackgroundState(bg_pink)}
-              >
-                <Meta title="Pink"/>
-              </Card>
-              <Card 
-                hoverable
-                style={{ width: 200 }}
-                cover={<img alt="green" src={bg_green} />}
-                onClick={() => toggleBackgroundState(bg_green)}
-              >
-                <Meta title="Green"/>
-              </Card>
-              <Card 
-                hoverable
-                style={{ width: 200 }}
-                cover={<img alt="orange" src={bg_orange} />}
-                onClick={() => toggleBackgroundState(bg_orange)}
-              >
-                <Meta title="Orange"/>
-              </Card>
+              <Space size={[12]}>
+                <Card 
+                  hoverable
+                  style={{ width: 200}}
+                  cover={<img alt="pink" src={bg_pink} style={{height: '100px'}}/>}
+                  onClick={() => toggleBackgroundState(bg_pink)}
+                >
+                  <Meta title="Pink"/>
+                </Card>
+                <Card 
+                  hoverable
+                  style={{ width: 200}}
+                  cover={<img alt="green" src={bg_green} style={{height: '100px'}}/>}
+                  onClick={() => toggleBackgroundState(bg_green)}
+                >
+                  <Meta title="Green"/>
+                </Card>
+                <Card 
+                  hoverable
+                  style={{ width: 200}}
+                  cover={<img alt="orange" src={bg_orange} style={{height: '100px'}}/>}
+                  onClick={() => toggleBackgroundState(bg_orange)}
+                >
+                  <Meta title="Orange"/>
+                </Card>
+              </Space>
             </Descriptions.Item>
           </Descriptions>
           <Button style={{marginTop: '10px'}}>
