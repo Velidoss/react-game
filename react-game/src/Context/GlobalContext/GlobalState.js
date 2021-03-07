@@ -1,8 +1,6 @@
 import GlobalContext from './GlobalContext';
 import { useState } from 'react';
 import bg_pink from '../../assets/images/bg_pink.jpg';
-import bg_green from '../../assets/images/bg_green.jpg';
-import bg_orange from '../../assets/images/bg_orange.jpg';
 
 const GlobalState = ({children}) => {
 

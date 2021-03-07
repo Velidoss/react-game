@@ -1,9 +1,12 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card ,Tooltip, Typography} from 'antd';
+import gameConstants from './../../constants/gameConstants';
 
 const ScoreComponent = ({score, gameRegime}) => {
 
   const {player, enemy} = score;
+  const {gameRegimesDescriptions} = gameConstants;
+  const {Text, Link } = Typography;
 
   const style = { 
     height: '100%',
@@ -15,8 +18,14 @@ const ScoreComponent = ({score, gameRegime}) => {
   
   return (
     <Card style={style} >
-      <span>{player} : {enemy}</span><br/>
-      <span>{`regime: ${gameRegime}`}</span>
+      <Text>{player} : {enemy}</Text><br/>
+        <Tooltip 
+          placement="bottomRight" 
+          title={gameRegimesDescriptions[gameRegime].description}
+          className={style.hoverText}
+        >
+        <Link style={{color: 'black'}}  underline>{`regime: ${gameRegime}`}</Link >
+      </Tooltip>
     </Card>
   )
 };

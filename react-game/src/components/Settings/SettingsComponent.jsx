@@ -15,7 +15,6 @@ const SettingsComponent = () => {
     toggleSoundState,
     languageState,
     toggleLanguageState,
-    backgroundState,
     toggleBackgroundState
   } = useContext(GlobalContext);
 
@@ -30,37 +29,37 @@ const SettingsComponent = () => {
         <ContainerHOC>
           <Descriptions 
             layout="vertical"
-            title="Settings" 
+            title={languageState === 'title' ? 'Settings' : 'Настройки'}
             style={{
               background: 'rgba(255,255,255, 0.5)', 
               padding: '20px',
               borderRadius: '20px'
             }}
           >
-            <Descriptions.Item label="Audio">
+            <Descriptions.Item label={languageState === 'title' ? 'Audio' : 'Звук'}>
               <Switch 
                 defaultChecked={soundState} 
                 onChange={onChangeAudio} 
               />
             </Descriptions.Item>
             <br/>
-            <Descriptions.Item label="Language">
+            <Descriptions.Item label={languageState === 'title' ? 'Language' : 'Язык'}>
               <Button 
                 disabled={checkLangButtonDisabled(languageState, 'ruTitle')}
                 onClick={() => {
                 toggleLanguageState('ruTitle');
               }}>
-                Russian
+                {languageState === 'title' ? 'Russian' : 'Русский'}
               </Button>
               <Button 
                 disabled={checkLangButtonDisabled(languageState, 'title')}
                 onClick={() => {
                 toggleLanguageState('title');
               }}>
-                English
+                {languageState === 'title' ? 'English' : 'Английский'}
               </Button>
             </Descriptions.Item>
-            <Descriptions.Item label="Background">
+            <Descriptions.Item label={languageState === 'title' ? 'Background' : 'Фон'} >
               <Space size={[12]}>
                 <Card 
                   hoverable
@@ -68,7 +67,7 @@ const SettingsComponent = () => {
                   cover={<img alt="pink" src={bg_pink} style={{height: '100px'}}/>}
                   onClick={() => toggleBackgroundState(bg_pink)}
                 >
-                  <Meta title="Pink"/>
+                  <Meta title={languageState === 'title' ? 'Pink' : 'Фиолетовый'}/>
                 </Card>
                 <Card 
                   hoverable
@@ -76,7 +75,7 @@ const SettingsComponent = () => {
                   cover={<img alt="green" src={bg_green} style={{height: '100px'}}/>}
                   onClick={() => toggleBackgroundState(bg_green)}
                 >
-                  <Meta title="Green"/>
+                  <Meta title={languageState === 'title' ? 'Green' : 'Зеленый'}/>
                 </Card>
                 <Card 
                   hoverable
@@ -84,7 +83,7 @@ const SettingsComponent = () => {
                   cover={<img alt="orange" src={bg_orange} style={{height: '100px'}}/>}
                   onClick={() => toggleBackgroundState(bg_orange)}
                 >
-                  <Meta title="Orange"/>
+                  <Meta title={languageState === 'title' ? 'Orange' : 'Оранжевый'}/>
                 </Card>
               </Space>
             </Descriptions.Item>

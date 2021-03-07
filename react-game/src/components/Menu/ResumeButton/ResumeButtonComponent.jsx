@@ -5,7 +5,7 @@ import { clickSound } from './../../../sounds/sounds';
 import GameContext from './../../../Context/GameContext/GameContext';
 
 const ResumeButtonComponent = ({soundState}) => {
-  const {state: {gameActive}, state} = useContext(GameContext);
+  const {state: {gameActive}} = useContext(GameContext);
   
   const [show, toggleShow] = useState(false);
 
@@ -13,7 +13,6 @@ const ResumeButtonComponent = ({soundState}) => {
     toggleShow(gameActive)
   }, [gameActive]);
 
-  console.log(state)
   return show ? (
     <Button block>
       <NavLink 

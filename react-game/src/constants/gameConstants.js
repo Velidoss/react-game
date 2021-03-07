@@ -20,6 +20,17 @@ const gameConstants = {
   gameRegimes: [
     'bo3', 'bo5', 'domination',
   ],
+  gameRegimesDescriptions: {
+    bo3: {
+      description: 'Who gets 2 points - wins a game'
+    },
+    bo5: {
+      description: 'Who gets 3 points - wins a game'
+    },
+    domination: {
+      description: 'Who gets ahead of his enemy on 2 points - wins a game'
+    },
+  },
   gameStages: {
     choose: 'choose', 
     fight: 'fight', 
