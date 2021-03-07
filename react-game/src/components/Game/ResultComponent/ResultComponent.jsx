@@ -9,6 +9,7 @@ import GlobalContext from './../../../Context/GlobalContext/GlobalContext';
 
 const ResultComponent = ({gameRegime}) => {
 
+  
   const {
     state, switchStageAC, refreshStateAC, 
   } = useContext(GameContext);
