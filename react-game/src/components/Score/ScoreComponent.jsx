@@ -21,7 +21,7 @@ const ScoreComponent = ({score, gameRegime}) => {
       <Text>{player} : {enemy}</Text><br/>
         <Tooltip 
           placement="bottomRight" 
-          title={gameRegimesDescriptions[gameRegime].description}
+          title={gameRegime && gameRegimesDescriptions[gameRegime].description}
           className={style.hoverText}
         >
         <Link style={{color: 'black'}}  underline>{`regime: ${gameRegime}`}</Link >
