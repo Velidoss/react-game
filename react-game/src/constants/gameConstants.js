@@ -5,16 +5,19 @@ import scissor from '../assets/images/scissor.png';
 const gameConstants = {
   weapons: [
     {
-      name: 'rock',
+      title: 'rock',
       imagePath: rock,
+      ruTitle: 'камень'
     },
     {
-      name: 'scissor',
+      title: 'scissor',
       imagePath: scissor,
+      ruTitle: 'ножницы'
     },
     {
-      name: 'paper',
+      title: 'paper',
       imagePath: paper,
+      ruTitle: 'бумага'
     },
   ],
   gameRegimes: [
@@ -22,13 +25,16 @@ const gameConstants = {
   ],
   gameRegimesDescriptions: {
     bo3: {
-      description: 'Who gets 2 points - wins a game'
+      title: 'Who gets 2 points - wins a game',
+      ruTitle: 'Побеждает тот, кто наберет 2 очка',
     },
     bo5: {
-      description: 'Who gets 3 points - wins a game'
+      title: 'Who gets 3 points - wins a game',
+      ruTitle: 'Побеждает тот, кто наберет 3 очка',
     },
     domination: {
-      description: 'Who gets ahead of his enemy on 2 points - wins a game'
+      title: 'Who gets ahead of his enemy on 2 points - wins a game',
+      ruTitle: 'Побеждает тот, кто перегонит противника на 2 очка',
     },
   },
   gameStages: {

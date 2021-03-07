@@ -4,6 +4,7 @@ import GameContext from '../../../Context/GameContext/GameContext';
 import WeaponComponent from './Weapon/WeaponComponent';
 import { Row, Col, Space } from 'antd';
 import style from './ChooseWeapon.module.scss';
+import GlobalContext from './../../../Context/GlobalContext/GlobalContext';
 
 const ChooseWeaponComponent = () => {
   const {
@@ -11,6 +12,8 @@ const ChooseWeaponComponent = () => {
     setEnemyWeaponAC,
     switchStageAC
   } = useContext(GameContext);
+
+  const {languageState} = useContext(GlobalContext);
 
   const {weapons, gameStages:{fight}} = gameConstants;
 
@@ -25,15 +28,15 @@ const ChooseWeaponComponent = () => {
       className={style.container}
     >
       <Col span={24} className={style.container_items}>
-        <h2>Choose your weapon</h2>
+        <h2>{languageState === 'title' ? 'Choose your weapon' : 'Выбери оружие'}</h2>
         <Space size={18}>
           {
             weapons.map((item, index) => (
               <WeaponComponent
                 key={index}
                 image={item.imagePath}
-                text={item.name}
-                onClickCallBack={() => chooseWeapon(item.name)}
+                text={item[languageState]}
+                onClickCallBack={() => chooseWeapon(item.title)}
               />
             ))
           }

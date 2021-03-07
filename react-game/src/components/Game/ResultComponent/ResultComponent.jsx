@@ -12,7 +12,7 @@ const ResultComponent = ({gameRegime}) => {
   const {
     state, switchStageAC, refreshStateAC, 
   } = useContext(GameContext);
-  const {soundState} = useContext(GlobalContext);
+  const {soundState, languageState} = useContext(GlobalContext);
 
   const {fightResult, score} = state;
   const {gameResults:{tie, win, loss}, gameStages:{choose}} = gameConstants;
@@ -27,12 +27,17 @@ const ResultComponent = ({gameRegime}) => {
   if(fightResult === tie) {
     return (
       <Row justify="center">
-        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
-          <h2>You have tied!</h2>
+        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column', textAlign: 'center'}}>
+          <h2>
+            {languageState === 'title' 
+              ? `You have tied!` 
+              : `Ничья!`
+            }
+          </h2>
           <Button onClick={() => {
           switchStageAC(choose);
           }}>
-            Next round
+            {languageState === 'title' ? `Next round` : `Следующий раунд`}
           </Button>
         </Col>
       </Row>
@@ -41,24 +46,39 @@ const ResultComponent = ({gameRegime}) => {
   if(fightResult === loss) {
     return finished ? (
       <Row justify="center">
-        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
-          <h2>You have lost a battle! Wanna play another one?</h2>
+        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column', textAlign: 'center'}}>
+          <h2>
+            {languageState === 'title' 
+              ? `You have lost a battle! Wanna play another one?` 
+              : `Вы програли! Хотите сыграть еще одну?`
+            }
+          </h2>
           <Button 
             onClick={() => {
               refreshStateAC();
             }}
-
-            ><NavLink to="/regimes" >Start new game</NavLink></Button>
+            >
+            <NavLink to="/regimes" >
+                {languageState === 'title' ? `Start new game` : `Начать новую игру`}
+            </NavLink>
+          </Button>
         </Col>
       </Row>
     )
     : (
       <Row justify="center">
-        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
-          <h2>You have lost a round! </h2>
+        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column', textAlign: 'center'}}>
+          <h2>
+            {languageState === 'title' 
+              ? 'You have lost a round!'
+              : 'Вы програли раунд!'
+            }
+          </h2>
           <Button onClick={() => {
             switchStageAC(choose);
-            }}>Next round</Button>
+            }}>
+              {languageState === 'title' ? `Next round` : `Следующий раунд`}
+            </Button>
         </Col>
       </Row>
     )
@@ -66,24 +86,39 @@ const ResultComponent = ({gameRegime}) => {
   if(fightResult === win) {
     return finished ? (
       <Row justify="center">
-        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
-          <h2>You have won a battle! Wanna play another one?</h2>
+        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column', textAlign: 'center'}}>
+          <h2>
+            
+            {languageState === 'title' 
+              ? 'You have won a battle! Wanna play another one?'
+              : 'Вы победили! Хотите сыграть еще одну?'
+            }
+          </h2>
           <Button 
             onClick={() => {
               refreshStateAC();
-            }}><NavLink to="/regimes" >Start new game</NavLink></Button>
+            }}>
+              <NavLink to="/regimes" >
+                {languageState === 'title' ? `Start new game` : `Начать новую игру`}
+              </NavLink>
+            </Button>
         </Col>
       </Row>
     )
     : (
       <Row justify="center">
-        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column'}}>
-        <h2>You have won a round!</h2>
+        <Col style={{display:'flex', justifyContent: 'center', flexDirection:'column', textAlign: 'center'}}>
+        <h2>
+          {languageState === 'title' 
+            ? 'You have won a round!'
+            : 'Вы выиграли раунд!'
+          }
+        </h2>
           <Button onClick={() => {
             switchStageAC(choose);
             }}
           >
-            Next round
+            {languageState === 'title' ? `Next round` : `Следующий раунд`}
           </Button>
         </Col>
       </Row>

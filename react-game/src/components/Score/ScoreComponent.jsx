@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card ,Tooltip, Typography} from 'antd';
 import gameConstants from './../../constants/gameConstants';
+import GlobalContext from './../../Context/GlobalContext/GlobalContext';
 
 const ScoreComponent = ({score, gameRegime}) => {
 
   const {player, enemy} = score;
   const {gameRegimesDescriptions} = gameConstants;
   const {Text, Link } = Typography;
+
+  const {languageState} = useContext(GlobalContext);
 
   const style = { 
     height: '100%',
@@ -21,10 +24,12 @@ const ScoreComponent = ({score, gameRegime}) => {
       <Text>{player} : {enemy}</Text><br/>
         <Tooltip 
           placement="bottomRight" 
-          title={gameRegime && gameRegimesDescriptions[gameRegime].description}
+          title={gameRegime && gameRegimesDescriptions[gameRegime][languageState]}
           className={style.hoverText}
         >
-        <Link style={{color: 'black'}}  underline>{`regime: ${gameRegime}`}</Link >
+        <Link style={{color: 'black'}}  underline>
+          {languageState === 'title' ? `Regime: ${gameRegime}` : `Режим: ${gameRegime}`}
+        </Link >
       </Tooltip>
     </Card>
   )

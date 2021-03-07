@@ -4,6 +4,7 @@ import gameConstants from './../../../constants/gameConstants';
 import { Row, Col, Spin } from 'antd';
 import WeaponComponent from './../ChooseWeapon/Weapon/WeaponComponent';
 import ResultComponent from '../ResultComponent/ResultComponent';
+import GlobalContext from './../../../Context/GlobalContext/GlobalContext';
 
 const FightComponent = () => {
 
@@ -13,6 +14,8 @@ const FightComponent = () => {
     },
     setScoreAC
   } = useContext(GameContext);
+
+  const {languageState} = useContext(GlobalContext);
 
   const { weapons } = gameConstants;
   const [loading, toggleLoading] = useState(true);
@@ -24,8 +27,8 @@ const FightComponent = () => {
     }, 2000);
   }, []);
 
-  const weaponData = weapons.find((item) => item.name === weapon ); 
-  const enemyWeaponData = weapons.find((item) => item.name === enemyWeapon );
+  const weaponData = weapons.find((item) => item.title === weapon ); 
+  const enemyWeaponData = weapons.find((item) => item.title === enemyWeapon );
 
   return !loading ? (
     <Row
@@ -37,7 +40,7 @@ const FightComponent = () => {
       <Col span={12} >
         <Row  justify="space-around">
           <Col>      
-            <h2>Your weapon</h2>
+            <h2>{languageState === 'title' ? 'Your weapon' : 'Ваше оружие'}</h2>
             {
               weaponData && <WeaponComponent
                 image={weaponData.imagePath}
@@ -46,7 +49,7 @@ const FightComponent = () => {
             }
           </Col>
           <Col>
-            <h2>Enemy weapon</h2>
+          <h2>{languageState === 'title' ? 'Enemy weapon' : 'Оружие врага'}</h2>
             {
               enemyWeaponData && <WeaponComponent
                 image={enemyWeaponData.imagePath}
