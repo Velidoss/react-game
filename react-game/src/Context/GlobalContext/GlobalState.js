@@ -4,11 +4,14 @@ import { useState } from 'react';
 const GlobalState = ({children}) => {
 
   const [soundState, toggleSoundState] = useState(true);
+  const [languageState, toggleLanguageState] = useState('title');
 
   return <GlobalContext.Provider
     value={{
       soundState,
-      toggleSoundState
+      toggleSoundState,
+      languageState,
+      toggleLanguageState,
     }}
   >
     {children}

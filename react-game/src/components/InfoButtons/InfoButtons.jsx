@@ -4,12 +4,15 @@ import { Row, Col, Button } from 'antd';
 import ScoreComponent from './../Score/ScoreComponent';
 import GameContext from './../../Context/GameContext/GameContext';
 import SoundSwitcher from './../SoundSwitcher/SoundSwitcher';
+import GlobalContext from './../../Context/GlobalContext/GlobalContext';
+import { clickSound } from './../../sounds/sounds';
 
 
 const InfoButtons = () => {
   const location = useLocation();
   const [showScore, setShowScore] = useState(false);
   const {state:{score, gameRegime}} = useContext(GameContext);
+  const {soundState} = useContext(GlobalContext);
 
   useEffect(() => {
     location.pathname === '/game' 
@@ -29,7 +32,9 @@ const InfoButtons = () => {
         }}
       >
         <Button>
-          <NavLink to="/">
+          <NavLink to="/" onClick={() => {
+            soundState && clickSound.play();
+          }}>
             Menu
           </NavLink>
         </Button>
