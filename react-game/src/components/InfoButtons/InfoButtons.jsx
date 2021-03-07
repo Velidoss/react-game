@@ -12,7 +12,7 @@ const InfoButtons = () => {
   const location = useLocation();
   const [showScore, setShowScore] = useState(false);
   const {state:{score, gameRegime}} = useContext(GameContext);
-  const {soundState} = useContext(GlobalContext);
+  const {soundState, languageState} = useContext(GlobalContext);
 
   useEffect(() => {
     location.pathname === '/game' 
@@ -35,7 +35,7 @@ const InfoButtons = () => {
           <NavLink to="/" onClick={() => {
             soundState && clickSound.play();
           }}>
-            Menu
+            {languageState === 'title' ?  'Menu' : 'Меню'}
           </NavLink>
         </Button>
       </Col>

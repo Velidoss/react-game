@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Layout} from 'antd';
 import './App.css';
 import 'antd/dist/antd.css';
 import ContentComponent from './components/ContentComponent';
-import gameBackground from './assets/images/gameBackground.jpg';
-import GlobalState from './Context/GlobalContext/GlobalState';
 import GameState from './Context/GameContext/GameState';
+import GlobalContext from './Context/GlobalContext/GlobalContext';
 
 
 function App() {
 
   const { Content } = Layout;
+
+  const {backgroundState} = useContext(GlobalContext);
 
   return (
     <Layout className="site-layout">
@@ -18,14 +19,12 @@ function App() {
         className="site-layout-background"
         style={{
           height: '100vh',
-          background: `url(${gameBackground})`
+          background: `url(${backgroundState}) center/cover no-repeat`,
         }}
       >
-        <GlobalState>
-          <GameState>
-            <ContentComponent />
-          </GameState>
-        </GlobalState>
+        <GameState>
+          <ContentComponent />
+        </GameState>
       </Content>
     </Layout>
   );
